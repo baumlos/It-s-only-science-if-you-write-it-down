@@ -6,7 +6,7 @@ namespace Physics
     [RequireComponent(typeof(Rigidbody2D))]
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] private float bounceForce = 100;
+        //[SerializeField] private float bounceForce = 100;
         private new Rigidbody2D rigidbody2D;
         private new Transform transform;
 

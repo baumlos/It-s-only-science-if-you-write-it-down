@@ -5,11 +5,11 @@ using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
-    public bool EditState { get; set; }
+    public bool EditState { get; set; } = true;
 
     [SerializeField] private Camera cam;
     [SerializeField] private Shooter shooter;
-    [SerializeField] private GameObject sceneEditor;
+    [SerializeField] private SpiegelplatzierenScript sps;
 
     private void Update()
     {
@@ -17,10 +17,15 @@ public class InputManager : MonoBehaviour
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             var mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            
+
+            if (Input.GetMouseButtonDown(1)) EditState = !EditState;
             if (EditState)
             {
-                // do edit stuff @Klaus
+                sps.updatePos(mousePos);
+                if (Input.GetMouseButtonDown(0) )
+                {
+                    sps.spawnMirror();
+                }
             }
             else
             {
@@ -33,5 +38,6 @@ public class InputManager : MonoBehaviour
                 }
             }
         }
+        
     }
 }
