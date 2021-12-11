@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Physics
 {
@@ -52,7 +52,7 @@ namespace Physics
 
         private void Update()
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0)&& !EventSystem.current.IsPointerOverGameObject())
             {
                 GetDirectionLength(out currentDirection, out currentLength);
                 SetArrowRotation(currentDirection);
@@ -63,7 +63,7 @@ namespace Physics
         public void Reset()
         {
             HasShot = false;
-            Destroy(currentProjectile);
+            Destroy(currentProjectile.gameObject);
             OnValidate();
         }
 
