@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Physics
 {
@@ -11,12 +10,7 @@ namespace Physics
         
         [Header("Projectile Settings")] [SerializeField]
         private Projectile projectilePrefab;
-
         [SerializeField] private float shootForce;
-
-        [Header("External References")] [SerializeField]
-        private Camera cam;
-
         [SerializeField] private Transform projectileParent;
 
         [Header("Internal References")] [SerializeField]
@@ -45,27 +39,18 @@ namespace Physics
             SetArrowVisible(true);
         }
 
-        private void Update()
+        public void Click(Vector2 mousePosWorld)
         {
-            if (Input.GetMouseButton(0)&& !EventSystem.current.IsPointerOverGameObject())
-            {
-                GetDirectionLength(out currentDirection, out currentLength);
-                SetArrowRotation(currentDirection);
-                SetArrowLength(currentLength);
-            }
+            currentDirection = mousePosWorld - (Vector2) transform.position;
+            currentLength = new Vector2(currentDirection.x, currentDirection.y).magnitude;
+            SetArrowRotation(currentDirection);
+            SetArrowLength(currentLength);
         }
 
         public void Reset()
         {
             HasShot = false;
             Destroy(currentProjectile.gameObject);
-        }
-
-        private void GetDirectionLength(out Vector2 direction, out float length)
-        {
-            var mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            direction = mousePos - transform.position;
-            length = new Vector2(direction.x, direction.y).magnitude;
         }
 
         public void Shoot()

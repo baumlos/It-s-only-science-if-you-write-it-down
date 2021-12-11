@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &199793339
 GameObject:
@@ -200,12 +200,12 @@ GameObject:
   - component: {fileID: 199793341}
   - component: {fileID: 199793340}
   m_Layer: 0
-  m_Name: Text-Ground
-  m_TagString: Mirror
+  m_Name: Test-Ground
+  m_TagString: MirrorEdge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!68 &199793340
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -245,8 +245,54 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -26.84}
+--- !u!1 &305315699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 305315701}
+  - component: {fileID: 305315700}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &305315700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305315699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af67af20ede4b77bc84582b769fdf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
+  shooter: {fileID: 1317350356}
+  sceneEditor: {fileID: 0}
+--- !u!4 &305315701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305315699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.93104184, y: 1.0465697, z: -3.3212097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &329821509
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +375,7 @@ Transform:
   m_LocalScale: {x: 9.3202, y: 3.0450754, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &329821512
 BoxCollider2D:
@@ -613,7 +659,7 @@ RectTransform:
   - {fileID: 747397458}
   - {fileID: 1064060083}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1027,7 +1073,7 @@ Transform:
   m_LocalScale: {x: 1.1599, y: 0.4137, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 93.546}
 --- !u!1 &1014832330
 GameObject:
@@ -1222,7 +1268,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317350354
 GameObject:
@@ -1255,7 +1301,7 @@ Transform:
   - {fileID: 944070162}
   - {fileID: 1014832331}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1317350356
 MonoBehaviour:
@@ -1273,7 +1319,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6609578997238341604, guid: 5b44f4f2a4addfa45a2ee81d3e50c3c6,
     type: 3}
   shootForce: 100
-  cam: {fileID: 519420031}
   projectileParent: {fileID: 1210482876}
   arrowTransform: {fileID: 1014832331}
   arrowBody: {fileID: 1625930517}
