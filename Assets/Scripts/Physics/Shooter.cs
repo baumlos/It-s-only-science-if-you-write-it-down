@@ -5,6 +5,10 @@ namespace Physics
 {
     public class Shooter : MonoBehaviour
     {
+        [Header("Default Settings")] [SerializeField]
+        private Vector2 startDirection = Vector2.right;
+        private float startLength = 1f;
+        
         [Header("Projectile Settings")] [SerializeField]
         private Projectile projectilePrefab;
 
@@ -22,8 +26,16 @@ namespace Physics
         [SerializeField] private Transform arrowHead;
 
         private new Transform transform;
-        private Vector2 currentDirection = Vector3.right;
-        private float currentLength = 1f;
+        private Vector2 currentDirection;
+        private float currentLength;
+        private bool HasShot;
+        private Projectile currentProjectile;
+
+        private void OnValidate()
+        {
+            currentDirection = startDirection;
+            currentLength = startLength;
+        }
 
         private void Awake()
         {
@@ -32,6 +44,7 @@ namespace Physics
 
         private void Start()
         {
+            OnValidate();
             SetArrowRotation(currentDirection);
             SetArrowLength(currentLength);
             SetArrowVisible(true);
@@ -45,10 +58,13 @@ namespace Physics
                 SetArrowRotation(currentDirection);
                 SetArrowLength(currentLength);
             }
-            if (Input.GetMouseButton(1))
-            {
-                Shoot(currentDirection, shootForce * currentLength);
-            }
+        }
+
+        public void Reset()
+        {
+            HasShot = false;
+            Destroy(currentProjectile);
+            OnValidate();
         }
 
         private void GetDirectionLength(out Vector2 direction, out float length)
@@ -58,10 +74,14 @@ namespace Physics
             length = new Vector2(direction.x, direction.y).magnitude;
         }
 
-        private void Shoot(Vector2 direction, float force)
+        public void Shoot()
         {
-            var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation, projectileParent);
-            projectile.Shoot(direction, force);
+            if(HasShot)
+                return;
+            
+            HasShot = true;
+            currentProjectile = Instantiate(projectilePrefab, transform.position, transform.rotation, projectileParent);
+            currentProjectile.Shoot(currentDirection, shootForce * currentLength);
         }
 
         private void SetArrowVisible(bool visible)
