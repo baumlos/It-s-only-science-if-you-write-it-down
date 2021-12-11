@@ -9,18 +9,11 @@ namespace Physics
         [SerializeField] private float bounceForce = 100;
         private new Rigidbody2D rigidbody2D;
         private new Transform transform;
-        private Vector2 prevPos;
-        
 
         private void Awake()
         {
             rigidbody2D = GetComponent<Rigidbody2D>();
             transform = base.transform;
-        }
-
-        private void LateUpdate()
-        {
-            prevPos = transform.position;
         }
 
         public void Shoot(Vector2 direction, float force)
@@ -32,13 +25,19 @@ namespace Physics
         {
             if (other.tag.Equals("Mirror"))
             {
-                var currrentDir = rigidbody2D.velocity; //((Vector2)transform.position - prevPos).normalized;
-                var normal = new Vector2(0, 1);
-                var mirroredDir = currrentDir - 2 * Vector2.Dot(currrentDir, normal) * normal;
-                Debug.Log($"current velocity: {currrentDir}");
-                Debug.Log($"Force vector: {mirroredDir}");
+                var currentDir = rigidbody2D.velocity;
+                var normal = (Vector2) other.GetComponent<Transform>().up;
 
-                //rigidbody2D.AddForce(normal * bounceForce);
+                var mirroredDir = currentDir - 2 * Vector2.Dot(currentDir, normal) * normal;
+                rigidbody2D.velocity = mirroredDir;
+            }
+            else if (other.tag.Equals("MirrorEdge"))
+            {
+                var currentDir = rigidbody2D.velocity;
+                var edgeCollider = other.GetComponent<EdgeCollider2D>();
+                var edge = (edgeCollider.adjacentEndPoint - edgeCollider.adjacentStartPoint).normalized;
+
+                var mirroredDir = 2 * Vector2.Dot(currentDir, edge) * edge - currentDir;
                 rigidbody2D.velocity = mirroredDir;
             }
         }

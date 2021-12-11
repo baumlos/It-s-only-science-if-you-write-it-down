@@ -31,20 +31,15 @@ namespace Physics
         private bool HasShot;
         private Projectile currentProjectile;
 
-        private void OnValidate()
+        private void Awake()
         {
+            transform = base.transform;
             currentDirection = startDirection;
             currentLength = startLength;
         }
 
-        private void Awake()
-        {
-            transform = base.transform;
-        }
-
         private void Start()
         {
-            OnValidate();
             SetArrowRotation(currentDirection);
             SetArrowLength(currentLength);
             SetArrowVisible(true);
@@ -64,7 +59,6 @@ namespace Physics
         {
             HasShot = false;
             Destroy(currentProjectile.gameObject);
-            OnValidate();
         }
 
         private void GetDirectionLength(out Vector2 direction, out float length)
