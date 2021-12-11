@@ -46,7 +46,7 @@ public class SpiegelplatzierenScript : MonoBehaviour
     private void FixedUpdate()
     {
         double val;
-        if (_collider.IsTouchingLayers(256)) val = 0;
+        if (_collider.IsTouchingLayers(1)) val = 0;
         else val = 1;
         buffer[collcounter] = val;
         collcounter++;
@@ -69,29 +69,21 @@ public class SpiegelplatzierenScript : MonoBehaviour
         if(!placeable) material.SetColor(Color1,Color.red);
     }
 
-    public bool spawnMirror()
+    public GameObject spawnMirror()
     {
         if (buffer.Average() > 0.9)
         {
-            GameObject spawn;
-            spawn = Instantiate(mirrorspawn);
+            var spawn = Instantiate(mirrorspawn);
             var transform1 = transform;
             spawn.transform.position = transform1.position;
             spawn.transform.rotation = transform1.rotation;
 
-            return true;
+            return spawn;
         }
         else
         {
-            return false;
+            return null;
         }
     }
 
-    public void resetLevel()
-    {
-        foreach (var variable in mirrorlist)
-        {
-            Destroy(variable);
-        }
-    }
 }
