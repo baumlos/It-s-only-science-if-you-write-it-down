@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2607861645731684834}
   - component: {fileID: 941943040}
   - component: {fileID: 941943041}
+  - component: {fileID: 4588840306691459111}
   m_Layer: 7
   m_Name: Mirrorplacer
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 99d28bef950fe214088a1a27854dd971, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bfae266e6ca6838458ba9a2345c9c489, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,19 +135,38 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0028262138, y: -0.23740363}
+  m_Offset: {x: -0.003711462, y: -0.14914536}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 1.5}
+    oldSize: {x: 3, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4378233, y: 0.97997284}
+  m_Size: {x: 2.8954587, y: 0.6334777}
   m_EdgeRadius: 0
+--- !u!95 &4588840306691459111
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941943036}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dd5a3ef0a09577c4d93c970b2a2448cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3070338089543908164
 GameObject:
   m_ObjectHideFlags: 0
