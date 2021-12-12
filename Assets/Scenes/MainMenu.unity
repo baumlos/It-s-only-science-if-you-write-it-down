@@ -135,6 +135,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mirror
       objectReference: {fileID: 0}
+    - target: {fileID: 6932228153711967845, guid: 10490fc634519914b8cbe8828ce0ba32,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7964036031585392082, guid: 10490fc634519914b8cbe8828ce0ba32,
         type: 3}
       propertyPath: m_RootOrder
@@ -200,7 +205,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 29.1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6574339243899489924, guid: 10490fc634519914b8cbe8828ce0ba32, type: 3}
+    - {fileID: 1405056782224757571, guid: 10490fc634519914b8cbe8828ce0ba32, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10490fc634519914b8cbe8828ce0ba32, type: 3}
 --- !u!1001 &284126795
 PrefabInstance:

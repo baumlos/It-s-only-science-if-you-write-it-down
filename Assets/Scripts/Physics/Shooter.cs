@@ -25,7 +25,6 @@ namespace Physics
         private new Transform transform;
         private Vector2 currentDirection;
         private float currentLength;
-        private bool HasShot;
         private Projectile currentProjectile;
 
         private void Awake()
@@ -53,16 +52,13 @@ namespace Physics
 
         public void Reset()
         {
-            HasShot = false;
-            Destroy(currentProjectile.gameObject);
+            if(currentProjectile != null)
+                Destroy(currentProjectile.gameObject);
         }
 
         public void Shoot()
         {
-            if(HasShot)
-                return;
-            
-            HasShot = true;
+            Reset();
             currentProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity, projectileParent);
             Debug.Log("currentDir: "+ currentDirection + "velocity: "+ minSpeed + velocityMultiplier * currentLength);
             currentProjectile.Shoot(currentDirection.normalized, minSpeed + velocityMultiplier * currentLength);
