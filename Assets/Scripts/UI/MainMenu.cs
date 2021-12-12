@@ -10,10 +10,7 @@ namespace UI
 
         private void Start()
         {
-            foreach (var o in deactivateOnStart)
-            {
-                o.SetActive(false);
-            }
+            init();
         }
 
         public void init()

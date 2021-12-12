@@ -33,4 +33,9 @@ public class SpiegelmanagerScript : MonoBehaviour
             Destroy(mirror);
         }
     }
+
+    public int count()
+    {
+        return mirrors.Count(m => m != null);
+    }
 }

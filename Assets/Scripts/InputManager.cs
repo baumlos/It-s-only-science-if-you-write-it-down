@@ -1,4 +1,5 @@
 ﻿using Physics;
+using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -22,6 +23,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private Shooter shooter;
     [SerializeField] private SpiegelmanagerScript sms;
     [SerializeField] private SpiegelplatzierenScript sps;
+    [SerializeField] private ToggleSetter togglesetter;
 
     private void Update()
     {
@@ -33,17 +35,20 @@ public class InputManager : MonoBehaviour
             if(sps.gameObject.activeSelf==false)
                 sps.gameObject.SetActive(EditState && !DeleteState);
 
-            if (Input.GetMouseButtonDown(1))
-            {
-                EditState = !EditState;
-            }
+            // if (Input.GetMouseButtonDown(1))
+            // {
+            //     EditState = !EditState;
+            //     togglesetter.SetToggleCorrectly(EditState,DeleteState);
+            // }
 
             if (EditState)
             {
-                if (Input.GetKeyDown("space"))
-                {
-                    DeleteState = !DeleteState;
-                }
+                // if (Input.GetKeyDown("space"))
+                // {
+                //     DeleteState = !DeleteState;
+                //     togglesetter.SetToggleCorrectly(EditState,DeleteState);
+                //     sps.gameObject.SetActive(!DeleteState);
+                // }
 
                 if (!DeleteState)
                 {
