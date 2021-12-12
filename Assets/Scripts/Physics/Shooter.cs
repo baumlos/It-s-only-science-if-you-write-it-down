@@ -19,6 +19,8 @@ namespace Physics
         [SerializeField] private Transform arrowBody;
         [SerializeField] private Transform arrowHead;
 
+        [SerializeField] private float maxArrowLength = 5f;
+
         private new Transform transform;
         private Vector2 currentDirection;
         private float currentLength;
@@ -43,6 +45,7 @@ namespace Physics
         {
             currentDirection = mousePosWorld - (Vector2) transform.position;
             currentLength = new Vector2(currentDirection.x, currentDirection.y).magnitude;
+            currentLength = Mathf.Min(currentLength, maxArrowLength);
             SetArrowRotation(currentDirection);
             SetArrowLength(currentLength);
         }
