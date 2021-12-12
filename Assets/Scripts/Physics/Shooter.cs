@@ -62,7 +62,7 @@ namespace Physics
                 return;
             
             HasShot = true;
-            currentProjectile = Instantiate(projectilePrefab, transform.position, transform.rotation, projectileParent);
+            currentProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity, projectileParent);
             currentProjectile.Shoot(currentDirection, shootForce * currentLength);
         }
 
