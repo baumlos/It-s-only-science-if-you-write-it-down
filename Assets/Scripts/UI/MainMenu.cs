@@ -16,6 +16,14 @@ namespace UI
             }
         }
 
+        public void init()
+        {
+            foreach (var o in deactivateOnStart)
+            {
+                o.SetActive(false);
+            }
+        }
+
         public void Exit()
         {
 #if UNITY_EDITOR

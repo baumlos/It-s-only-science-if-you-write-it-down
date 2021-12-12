@@ -10,7 +10,8 @@ namespace Physics
         
         [Header("Projectile Settings")] [SerializeField]
         private Projectile projectilePrefab;
-        [SerializeField] private float shootForce;
+        [SerializeField] private float velocityMultiplier = 5;
+        [SerializeField] private float minSpeed = 5;
         [SerializeField] private Transform projectileParent;
 
         [Header("Internal References")] [SerializeField]
@@ -63,7 +64,8 @@ namespace Physics
             
             HasShot = true;
             currentProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity, projectileParent);
-            currentProjectile.Shoot(currentDirection, shootForce * currentLength);
+            Debug.Log("currentDir: "+ currentDirection + "velocity: "+ minSpeed + velocityMultiplier * currentLength);
+            currentProjectile.Shoot(currentDirection.normalized, minSpeed + velocityMultiplier * currentLength);
         }
 
         private void SetArrowVisible(bool visible)

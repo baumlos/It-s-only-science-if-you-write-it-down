@@ -19,9 +19,9 @@ namespace Physics
             transform = base.transform;
         }
 
-        public void Shoot(Vector2 direction, float force)
+        public void Shoot(Vector2 direction, float velocity)
         {
-            rigidbody2D.AddForce(direction * force);
+            rigidbody2D.velocity = (direction * velocity);
         }
 
         private void OnTriggerEnter2D(Collider2D other)

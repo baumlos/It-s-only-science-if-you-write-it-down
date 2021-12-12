@@ -13,6 +13,7 @@ public class FinishScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.gameObject.tag.Equals("Projectile")) return;
         Debug.Log("You won");
         postIt.SetActive(true);
         winningText.text = $"It took you {dummy} refraction-units to complete the experiment.";

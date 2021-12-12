@@ -79,11 +79,13 @@ MonoBehaviour:
   startDirection: {x: 1, y: 0}
   projectilePrefab: {fileID: 6609578997238341604, guid: 5b44f4f2a4addfa45a2ee81d3e50c3c6,
     type: 3}
-  shootForce: 100
+  velocityMultiplier: 4
+  minSpeed: 3
   projectileParent: {fileID: 0}
   arrowTransform: {fileID: 3407759199589791967}
   arrowBody: {fileID: 3407759198170832641}
   arrowHead: {fileID: 3407759199354261354}
+  maxArrowLength: 3
 --- !u!1 &3407759199117979866
 GameObject:
   m_ObjectHideFlags: 0
