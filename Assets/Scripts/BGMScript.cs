@@ -24,6 +24,7 @@ public class BGMScript : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            
             AudioSource.PlayClipAtPoint(buttonPressSound,new Vector3(0,0,-10));
         }
     }

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a63814cfb02be48b83fca4f9d14cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonPressSound: {fileID: 8300000, guid: eca6aac09a1c3064897abb277ccbfc47, type: 3}
 --- !u!82 &454265664795633943
 AudioSource:
   m_ObjectHideFlags: 0
